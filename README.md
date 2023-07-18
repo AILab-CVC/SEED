@@ -1,5 +1,5 @@
 # Planting a SEED of Vision in Large Language Model
-[Paper](https://github.com/AILab-CVC/SEED/blob/main/SEED.pdf)
+[[arXiv]](https://arxiv.org/abs/2307.08041)
 
 ![image](https://github.com/AILab-CVC/SEED/blob/main/paper_images/teaser.jpg)
 ## Abstract
@@ -13,7 +13,7 @@ facilitating scalable multimodal training with LLM’s original recipe. In this 
 we identify two crucial principles for the architecture and training of SEED that
 effectively ease subsequent alignment with LLMs. (1) Image tokens should be
 independent of 2D physical patch positions and instead be produced with a 1D
-causal dependency, exhibiting intrinsic interdependence that aligns with the leftto-right autoregressive prediction mechanism in LLMs. (2) Image tokens should
+causal dependency, exhibiting intrinsic interdependence that aligns with the left-to-right autoregressive prediction mechanism in LLMs. (2) Image tokens should
 capture high-level semantics consistent with the degree of semantic abstraction in
 words, and be optimized for both discriminativeness and reconstruction during the
 tokenizer training phase. As a result, the off-the-shelf LLM is able to perform both
@@ -37,5 +37,18 @@ of proper image tokenizers in broader research.
 ## To Do
 - [ ] Release SEED Tokenizer
 - [ ] Release SEED-LLM
+
+## Citation
+If you find the work helpful, please consider citing:
+```
+@misc{ge2023planting,
+      title={Planting a SEED of Vision in Large Language Model}, 
+      author={Yuying Ge and Yixiao Ge and Ziyun Zeng and Xintao Wang and Ying Shan},
+      year={2023},
+      eprint={2307.08041},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+```
 
 The project is still in progress. Stay tuned for more updates!
