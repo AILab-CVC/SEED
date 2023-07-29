@@ -1,7 +1,11 @@
 # Planting a SEED of Vision in Large Language Model
 [[arXiv]](https://arxiv.org/abs/2307.08041)
 
-![image](https://github.com/AILab-CVC/SEED/blob/main/paper_images/teaser.jpg)
+![image](paper_images/teaser.jpg)
+
+## News
+**2023-07-29** We release the pre-trained SEED Visual Tokenizer and inference code.
+
 ## Abstract
 We present SEED, an elaborate image tokenizer that empowers Large Language
 Models (LLMs) with the emergent ability to **SEE** and **D**raw at the same time.
@@ -26,17 +30,55 @@ potential of discrete visual tokens in versatile multimodal LLMs and the importa
 of proper image tokenizers in broader research.
 
 ## SEED Tokenizer for Image Reconstruction
-![image](https://github.com/AILab-CVC/SEED/blob/main/paper_images/reconstruction.jpg)
+![image](paper_images/reconstruction.jpg)
 
 ## SEED-OPT<sub>2.7B </sub> for Multimodal Comprehension
-![image](https://github.com/AILab-CVC/SEED/blob/main/paper_images/vqa.jpg)
+![image](paper_images/vqa.jpg)
 
 ## SEED-OPT<sub>2.7B </sub> for Multimodal Generation
-![image](https://github.com/AILab-CVC/SEED/blob/main/paper_images/generation.jpg)
+![image](paper_images/generation.jpg)
+
+## Dependencies and Installation
+- Python >= 3.8 (Recommend to use [Anaconda](https://www.anaconda.com/download/#linux))
+- [PyTorch >= 1.11.0](https://pytorch.org/)
+- NVIDIA GPU + [CUDA](https://developer.nvidia.com/cuda-downloads)
+### Installation
+1. Clone repo
+
+    ```bash
+    git clone git@github.com:AILab-CVC/SEED.git
+    cd SEED
+    ```
+
+2. Install dependent packages
+
+    ```bash
+    sh install.sh
+    ```
+    
+## Model Weights
+We release the pre-trained SEED Visual Tokenizer in [google drive](https://drive.google.com/drive/folders/1xmVXuttQfBPBOe4ZR96Wu1X34uzPkxsS?usp=drive_link).
+
+## Inference
+To discretize an image to 1D vision codes with causal dependency, and reconstruct the image
+from the vision codes using stable diffusion UNet,
+
+1. Download the pre-trained SEED Visual Tokenizer and stable diffusion model in [google drive](https://drive.google.com/drive/folders/1xmVXuttQfBPBOe4ZR96Wu1X34uzPkxsS?usp=drive_link) and put them under the folder "pretrained".
+2. run the inference code.
+```bash
+    python demo_recon.py
+  ```
 
 ## To Do
-- [ ] Release SEED Tokenizer
+- [x] Release SEED Tokenizer
 - [ ] Release SEED-LLM
+
+## License
+SEED is released under Apache License Version 2.0.
+
+## Acknowledgement
+We utilize Stable Diffusion to decode images from our visual codes, and use its implementation and pre-trained model in https://github.com/CompVis/stable-diffusion.git. 
+
 
 ## Citation
 If you find the work helpful, please consider citing:
