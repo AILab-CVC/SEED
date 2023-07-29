@@ -79,6 +79,8 @@ SEED is released under Apache License Version 2.0.
 ## Acknowledgement
 We utilize Stable Diffusion to decode images from our visual codes, and use its implementation and pre-trained model in https://github.com/CompVis/stable-diffusion.git. 
 
+Our code is based on the implementation of BLIP-2 in https://github.com/salesforce/LAVIS.git.
+
 
 ## Citation
 If you find the work helpful, please consider citing:
