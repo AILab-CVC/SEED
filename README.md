@@ -4,6 +4,8 @@
 ![image](paper_images/teaser.jpg)
 
 ## News
+**2023-09-09** We are actively looking for self-motivated interns. Please feel free to reach out if you are interested.
+
 **2023-07-29** We release the pre-trained SEED Visual Tokenizer and inference code.
 
 ## Abstract
