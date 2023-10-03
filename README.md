@@ -8,7 +8,7 @@
 
 **2023-07-29** We release the pre-trained SEED Visual Tokenizer and inference code.
 
-## v2
+## SEED v2
 [[arXiv]](https://arxiv.org/abs/2310.01218)
 
 ![image](paper_images/v2/teaser.jpg)
@@ -26,7 +26,7 @@ shows the visual comparison of the reconstructed images between v2 tokenizer (th
 the visual information of the original images. The semantic representations of texts can not fully preserve the rich visual information of images.
 ![image](paper_images/v2/seed_comparison.jpg)
 
-## v1
+## SEED v1
 [[arXiv]](https://arxiv.org/abs/2307.08041)
 
 ![image](paper_images/teaser.jpg)
