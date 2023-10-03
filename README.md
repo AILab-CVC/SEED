@@ -1,7 +1,5 @@
 # Planting a SEED of Vision in Large Language Model
-[[arXiv]](https://arxiv.org/abs/2307.08041)
 
-![image](paper_images/teaser.jpg)
 
 ## News
 **2023-09-27** SEED-LLaMA will be released in October. Stay tuned for the updates!
@@ -10,6 +8,10 @@
 
 **2023-07-29** We release the pre-trained SEED Visual Tokenizer and inference code.
 
+## SEED v1
+[[arXiv]](https://arxiv.org/abs/2307.08041)
+
+![image](paper_images/teaser.jpg)
 ## Abstract
 We present SEED, an elaborate image tokenizer that empowers Large Language
 Models (LLMs) with the emergent ability to **SEE** and **D**raw at the same time.
