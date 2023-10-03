@@ -8,7 +8,7 @@
 
 **2023-07-29** We release the pre-trained SEED Visual Tokenizer and inference code.
 
-## SEED v2
+## SEED-LLaMA
 [[arXiv]](https://arxiv.org/abs/2310.01218)
 
 ![image](paper_images/v2/teaser.jpg)
@@ -19,14 +19,13 @@ In this version, we update the SEED tokenizer and present **SEED-LLaMA** by larg
 ![image](paper_images/v2/multi_turn2.jpg)
 ![image](paper_images/v2/results.jpg)
 
-## SEED v2 Tokenizer vs. SEED v1 Tokenizer for Image Reconstruction
-The generation embedding of SEED v2 is aligned with the image embedding of [unCLIP SD](https://huggingface.co/stabilityai/stable-diffusion-2-1-unclip), and can be decoded to realistic images with the unCLIP-SD-UNet. In SEED v1, we train a
-visual tokenizer through aligning the generation embeddings with the text embeddings (77 tokens) of [SD](https://github.com/CompVis/stable-diffusion), and the generation embeddings can be decoded to images with the SD-UNet. The below figure
-shows the visual comparison of the reconstructed images between v2 tokenizer (the third row) and v1 tokenizer (the second row). We can observe that compared with SEED v1, the images reconstructed by SEED v2 can better preserve
+## SEED Tokenizer Comparison for Image Reconstruction
+In this version, the generation embedding is aligned with the image embedding of [unCLIP SD](https://huggingface.co/stabilityai/stable-diffusion-2-1-unclip), and can be decoded to realistic images with the unCLIP-SD-UNet. In our previous version, we train a visual tokenizer through aligning the generation embeddings with the text embeddings (77 tokens) of [SD](https://github.com/CompVis/stable-diffusion), and the generation embeddings can be decoded to images with the SD-UNet. The below figure
+shows the visual comparison of the reconstructed images between the updated SEED tokenizer (the third row) and the previous SEED tokenizer (the second row). We can observe the images reconstructed by the updated SEED tokenizer can better preserve
 the visual information of the original images. The semantic representations of texts can not fully preserve the rich visual information of images.
 ![image](paper_images/v2/seed_comparison.jpg)
 
-## SEED v1
+## SEED
 [[arXiv]](https://arxiv.org/abs/2307.08041)
 
 ![image](paper_images/teaser.jpg)
