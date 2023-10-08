@@ -8,24 +8,26 @@
 
 **2023-07-29** We release the pre-trained SEED Visual Tokenizer and inference code.
 
-## SEED-LLaMA
+## SEED-LLaMA (Making LLaMA SEE and Draw with SEED Tokenizer)
 [[arXiv]](https://arxiv.org/abs/2310.01218)
 
 ![image](paper_images/v2/teaser.jpg)
 
-In this version, we update the SEED tokenizer and present **SEED-LLaMA** by large-scale pretraining and instruction tuning on the interleaved textual and visual data, which demonstrates impressive performance on a broad range of multimodal comprehension and generation tasks. More importantly, SEED-LLaMA has exhibited **compositional emergent abilities** such as multi-turn in-context multimodal generation, acting like your AI assistant.
+We present **SEED-LLaMA** by large-scale pretraining and instruction tuning on the interleaved textual and visual data, which demonstrates impressive performance on a broad range of multimodal comprehension and generation tasks. More importantly, SEED-LLaMA has exhibited **compositional emergent abilities** such as multi-turn in-context multimodal generation, acting like your **AI assistant**.
 
+### Compositional Emergent Ability
+**Multi-turn in-context image and text generation.**
 ![image](paper_images/v2/multi_turn1.jpg)
 ![image](paper_images/v2/multi_turn2.jpg)
+
+**Compositional image generation.**
 ![image](paper_images/v2/results.jpg)
 
-## SEED Tokenizer Comparison for Image Reconstruction
-In this version, the generation embedding is aligned with the image embedding of [unCLIP SD](https://huggingface.co/stabilityai/stable-diffusion-2-1-unclip), and can be decoded to realistic images with the unCLIP-SD-UNet. In our previous version, we train a visual tokenizer through aligning the generation embeddings with the text embeddings (77 tokens) of [SD](https://github.com/CompVis/stable-diffusion), and the generation embeddings can be decoded to images with the SD-UNet. The below figure
-shows the visual comparison of the reconstructed images between the updated SEED tokenizer (the third row) and the previous SEED tokenizer (the second row). We can observe the images reconstructed by the updated SEED tokenizer can better preserve
-the visual information of the original images. The semantic representations of texts can not fully preserve the rich visual information of images.
+### SEED Tokenizer v2
+In SEED tokenizer v2, the generation embedding is aligned with the **image embedding** (1 token) of [unCLIP SD](https://huggingface.co/stabilityai/stable-diffusion-2-1-unclip), and can be decoded to realistic images with the unCLIP-SD-UNet. In SEED tokenizer v1, we train a visual tokenizer through aligning the **generation embeddings** with the text embeddings (77 tokens) of [SD](https://github.com/CompVis/stable-diffusion), and the generation embeddings can be decoded to images with the SD-UNet. The below figure shows the visual comparison of the reconstructed images between SEED tokenizer v2 (the third row) and SEED tokenizer v1 (the second row). We can observe that the images reconstructed by SEED tokenizer v2 can better preserve the visual information of the original images. The semantic representations of texts can not fully preserve the rich visual information of images.
 ![image](paper_images/v2/seed_comparison.jpg)
 
-## SEED
+## SEED Tokenizer v1
 [[arXiv]](https://arxiv.org/abs/2307.08041)
 
 ![image](paper_images/teaser.jpg)
@@ -94,7 +96,6 @@ from the vision codes using stable diffusion UNet,
 
 ## To Do
 - [x] Release SEED Tokenizer
-- [ ] Release SEED-LLM
 
 ## License
 SEED is released under Apache License Version 2.0.
