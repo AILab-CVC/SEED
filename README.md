@@ -46,13 +46,11 @@ If you find the work helpful, please consider citing:
   journal={arXiv preprint arXiv:2310.01218},
   year={2023}
 }
-@misc{ge2023planting,
-      title={Planting a SEED of Vision in Large Language Model}, 
-      author={Yuying Ge and Yixiao Ge and Ziyun Zeng and Xintao Wang and Ying Shan},
-      year={2023},
-      eprint={2307.08041},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+@article{ge2023planting,
+  title={Planting a seed of vision in large language model},
+  author={Ge, Yuying and Ge, Yixiao and Zeng, Ziyun and Wang, Xintao and Shan, Ying},
+  journal={arXiv preprint arXiv:2307.08041},
+  year={2023}
 }
 ```
 
