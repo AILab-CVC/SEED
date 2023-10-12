@@ -1,5 +1,5 @@
 # Planting a SEED of Vision in Large Language Model
-
+[[Project Page]](https://ailab-cvc.github.io/seed/)
 
 ## News
 **2023-09-27** SEED-LLaMA will be released in October. Stay tuned for the updates!
