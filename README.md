@@ -6,29 +6,26 @@
 
 **Powered by [CV Center, Tencent AI Lab](https://ailab-cvc.github.io), and [ARC Lab, Tencent PCG](https://github.com/TencentARC).**
 
+![image](paper_images/milestone.jpg)
+
 The repository provides the official implementation of [SEED](https://ailab-cvc.github.io/seed/seed.html), [SEED-LLaMA](https://ailab-cvc.github.io/seed/seed_llama.html). For any inquiries, please email [seed-x@googlegroups.com](mailto:seed-x@googlegroups.com).
 
-<!-- [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/xxx) -->
-
-<!-- Check out the [[Project Page]](https://ailab-cvc.github.io/seed/) for our current progress and future vision. -->
-
-![image](paper_images/milestone.jpg)
 
 ## News
 
-**:beers: We are actively looking for self-motivated interns. Please feel free to reach out if you are interested.**
+**:beers: We are actively looking for self-motivated interns. Please feel free to reach out if you are interested. :beers:**
 
 - [ ] :eyes: Release the checkpoints and code of the SEED-2 tokenizer, and SEED-LLaMA-8B/14B. Expected to be in late October.
 - [ ] :eyes: We will soon release an online demo for SEED-LLaMA.
 - [x] **2023-10-02** :paperclip: We release the technical report of SEED-LLaMA on arXiv, which is empowered by the improved SEED-2 tokenizer.
-- [x] **2023-07-29** :octocat: We release the checkpoint of the SEED tokenizer and its inference code. [Getting started.](#seed-1-tokenizer)
+- [x] **2023-07-29** :octocat: We release the checkpoint of the SEED tokenizer and its inference code. [[Getting started]](#seed-1-tokenizer)
 - [x] **2023-07-16** :paperclip: We release the technical report of SEED on arXiv.
 
 Stay tuned for the updates!
 
 ## Brief Introduction
 
-It is recommended to check out our papers for technical details.
+It is recommended to check out our [papers](#citation) for technical details.
 
 ### :speech_balloon: What can SEED-LLaMA do?
 
@@ -42,7 +39,7 @@ It is recommended to check out our papers for technical details.
 
 ![image](paper_images/seed_overview.jpg)
 
-The core of SEED-LLaMA is the tailored **SEED** tokenizer, which properly quantized visual signals into discrete visual tokens, capturing necessary semantics while being produced under 1D causal dependence. [[Discuss SEED-2 vs. SEED-1]](https://ailab-cvc.github.io/seed/seed_llama.html)
+The core of SEED-LLaMA is the tailored **SEED** tokenizer, which properly quantized visual signals into discrete visual tokens, capturing necessary semantics while being produced under 1D causal dependence. [[SEED-2 vs. SEED-1]](https://ailab-cvc.github.io/seed/seed_llama.html)
 
 <!-- ### Compositional Emergent Ability
 **Multi-turn in-context image and text generation.**
@@ -96,7 +93,7 @@ python demo_recon.py
 
 ## Citation
 If you find the work helpful, please consider citing:
-```shell
+```bash
 @article{ge2023making,
   title={Making LLaMA SEE and Draw with SEED Tokenizer},
   author={Ge, Yuying and Zhao, Sijie and Zeng, Ziyun and Ge, Yixiao and Li, Chen and Wang, Xintao and Shan, Ying},
@@ -118,4 +115,4 @@ The project is still in progress. Stay tuned for more updates!
 `SEED` is released under [Apache License Version 2.0](License.txt).
 
 ## Acknowledgement
-We utilize `Stable Diffusion` to decode images from our visual codes, and use its implementation and pre-trained model in https://github.com/CompVis/stable-diffusion. Our code is developped based on https://github.com/salesforce/LAVIS.
+We utilize `Stable Diffusion` to decode images from our visual codes, and use its implementation and pre-trained model in https://github.com/CompVis/stable-diffusion. Our code is developped based on https://github.com/salesforce/LAVIS. Thanks for their wonderful works.
