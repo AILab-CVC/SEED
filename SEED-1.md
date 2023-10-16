@@ -51,7 +51,7 @@ of proper image tokenizers in broader research.
     ```bash
     sh install.sh
     ```
-    
+
 ## Model Weights
 We release the pre-trained SEED Visual Tokenizer in [google drive](https://drive.google.com/drive/folders/1xmVXuttQfBPBOe4ZR96Wu1X34uzPkxsS?usp=drive_link).
 
@@ -72,7 +72,7 @@ from the vision codes using stable diffusion UNet,
 SEED is released under Apache License Version 2.0.
 
 ## Acknowledgement
-We utilize Stable Diffusion to decode images from our visual codes, and use its implementation and pre-trained model in https://github.com/CompVis/stable-diffusion.git. 
+We utilize Stable Diffusion to decode images from our visual codes, and use its implementation and pre-trained model in https://github.com/CompVis/stable-diffusion.git.
 
 Our code is based on the implementation of BLIP-2 in https://github.com/salesforce/LAVIS.git.
 
@@ -81,7 +81,7 @@ Our code is based on the implementation of BLIP-2 in https://github.com/salesfor
 If you find the work helpful, please consider citing:
 ```
 @misc{ge2023planting,
-      title={Planting a SEED of Vision in Large Language Model}, 
+      title={Planting a SEED of Vision in Large Language Model},
       author={Yuying Ge and Yixiao Ge and Ziyun Zeng and Xintao Wang and Ying Shan},
       year={2023},
       eprint={2307.08041},
