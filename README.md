@@ -112,7 +112,7 @@ If you find the work helpful, please consider citing:
 The project is still in progress. Stay tuned for more updates!
 
 ## License
-`SEED` is released under [Apache License Version 2.0](License.txt).
+`SEED` is released under [Apache License Version 2.0](License.txt). `SEED-LLaMA` is released under the original [License](https://ai.meta.com/resources/models-and-libraries/llama-downloads/) of [LLaMA2](https://huggingface.co/meta-llama/Llama-2-13b-chat-hf).
 
 ## Acknowledgement
 We utilize `Stable Diffusion` to decode images from our visual codes, and use its implementation and pre-trained model in https://github.com/CompVis/stable-diffusion. Our code is developped based on https://github.com/salesforce/LAVIS. Thanks for their wonderful works.
