@@ -6,7 +6,7 @@
 
 **Powered by [CV Center, Tencent AI Lab](https://ailab-cvc.github.io), and [ARC Lab, Tencent PCG](https://github.com/TencentARC).**
 
-![image](paper_images/milestone.jpg)
+![image](https://github.com/AILab-CVC/SEED/blob/main/paper_images/milestone.jpg)
 
 The repository provides the official implementation of [SEED](https://ailab-cvc.github.io/seed/seed.html), [SEED-LLaMA](https://ailab-cvc.github.io/seed/seed_llama.html). For any inquiries, please email [seed-x@googlegroups.com](mailto:seed-x@googlegroups.com).
 
@@ -15,7 +15,7 @@ The repository provides the official implementation of [SEED](https://ailab-cvc.
 
 **:beers: We are actively looking for self-motivated interns. Please feel free to reach out if you are interested. :beers:**
 
-- [ ] :eyes: Release the checkpoints and code of the SEED-2 tokenizer, and SEED-LLaMA-8B/14B. Expected to be in late October.
+- [x] :eyes: Release the checkpoints and code of the SEED-2 tokenizer, and SEED-LLaMA-8B/14B. Expected to be in late October.
 - [ ] :eyes: We will soon release an online demo for SEED-LLaMA.
 - [x] **2023-10-02** :paperclip: We release the technical report of SEED-LLaMA on arXiv, which is empowered by the improved SEED-2 tokenizer.
 - [x] **2023-07-29** :octocat: We release the checkpoint of the SEED tokenizer and its inference code. [[Getting started]](#seed-1-tokenizer)
@@ -29,7 +29,7 @@ It is recommended to check out our [papers](#citation) for technical details.
 
 ### :speech_balloon: What can SEED-LLaMA do?
 
-![image](paper_images/v2/teaser.jpg)
+![image](https://github.com/AILab-CVC/SEED/blob/main/paper_images/v2/teaser.jpg)
 
 **SEED-LLaMA** is capable of both multimodal comprehension and generation, exhibiting compositional emergent abilities such as multi-turn in-context multimodal generation, acting like your AI assistant. [[Compare to SOTA]](https://ailab-cvc.github.io/seed/seed_llama_compare.html) [[More examples on X]](https://twitter.com/ge_yixiao/status/1710509538238157069?s=20)
 
@@ -37,7 +37,7 @@ It is recommended to check out our [papers](#citation) for technical details.
 
 ### :bulb: How does SEED-LLaMA achieve it?
 
-![image](paper_images/seed_overview.jpg)
+![image](https://github.com/AILab-CVC/SEED/blob/main/paper_images/seed_overview.jpg)
 
 The core of SEED-LLaMA is the tailored **SEED** tokenizer, which properly quantized visual signals into discrete visual tokens, capturing necessary semantics while being produced under 1D causal dependence. [[SEED-2 vs. SEED-1]](https://ailab-cvc.github.io/seed/seed_llama.html)
 
@@ -59,16 +59,12 @@ We perform multimodal autoregressive pretraining on interleaved visual and textu
 
 ## Usage
 
-### SEED-1 Tokenizer
-
-<!-- [Here](https://github.com/AILab-CVC/SEED/blob/main/SEED%20Tokenizer%20v1.md) -->
-
-#### Dependencies
+### Dependencies
 - Python >= 3.8 (Recommend to use [Anaconda](https://www.anaconda.com/download/#linux))
 - [PyTorch >= 1.11.0](https://pytorch.org/)
 - NVIDIA GPU + [CUDA](https://developer.nvidia.com/cuda-downloads)
 
-#### Installation
+### Installation
 1. Clone repo
 
     ```bash
@@ -79,17 +75,28 @@ We perform multimodal autoregressive pretraining on interleaved visual and textu
 2. Install dependent packages
 
     ```bash
-    sh install.sh
-    ```
+    pip install -r requirements.txt
+    ``` 
+    
+### Model Weights
+We release the pretrained SEED Tokenizer and De-Tokenizer, instruction tuned SEED-LLaMA-8B and SEED-LLaMA-14B in [SEED Hugging Face](https://huggingface.co/AILab-CVC/SEED). 
+Please download the checkpoints and save under the folder `./pretrained`.
 
-3. Download the checkpoints from [Google Drive](https://drive.google.com/drive/folders/1xmVXuttQfBPBOe4ZR96Wu1X34uzPkxsS?usp=drive_link), and save under the folder `./pretrained`.
+To reconstruct the image from the SEED visual codes using unCLIP SD-UNet, please download the pretrained [unCLIP SD](https://huggingface.co/stabilityai/stable-diffusion-2-1-unclip).
+Rename the checkpoint directory to **"diffusion_model"** and create a soft link to the "pretrained/seed_tokenizer" directory.
 
-#### Inference for tokenization and de-tokenization
-To discretize an image to 1D vision codes with causal dependency, and reconstruct the image from the vision codes using the off-the-shelf SDv1.4-UNet:
+
+### Inference for visual tokenization and de-tokenization
+To discretize an image to 1D visual codes with causal dependency, and reconstruct the image from the visual codes using the off-the-shelf unCLIP SD-UNet:
 ```bash
-python demo_recon.py
+python scripts/seed_tokenizer_inference.py
 ```
 
+### Launching Demo of SEED-LLaMA Locally 
+```bash
+sh start_backend.sh
+sh start_frontend.sh
+``` 
 
 ## Citation
 If you find the work helpful, please consider citing:
@@ -112,7 +119,10 @@ If you find the work helpful, please consider citing:
 The project is still in progress. Stay tuned for more updates!
 
 ## License
-`SEED` is released under [Apache License Version 2.0](License.txt). `SEED-LLaMA` is released under the original [License](https://ai.meta.com/resources/models-and-libraries/llama-downloads/) of [LLaMA2](https://huggingface.co/meta-llama/Llama-2-13b-chat-hf).
+`SEED` is released under [Apache License Version 2.0](License.txt). 
+
+`SEED-LLaMA` is released under the original [License](https://ai.meta.com/resources/models-and-libraries/llama-downloads/) of [LLaMA2](https://huggingface.co/meta-llama/Llama-2-13b-chat-hf).
 
 ## Acknowledgement
-We utilize `Stable Diffusion` to decode images from our visual codes, and use its implementation and pre-trained model in https://github.com/CompVis/stable-diffusion. Our code is developped based on https://github.com/salesforce/LAVIS. Thanks for their wonderful works.
+We thank the great work from [unCLIP SD](https://huggingface.co/stabilityai/stable-diffusion-2-1-unclip) and [BLIP2](https://github.com/salesforce/LAVIS).
+
