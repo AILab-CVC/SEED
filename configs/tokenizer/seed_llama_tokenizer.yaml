@@ -1,0 +1,4 @@
+_target_: models.seed_llama_tokenizer.SeedLlamaTokenizer.from_pretrained
+pretrained_model_name_or_path: ${oc.env:PROJECT_ROOT}/pretrained/seed_tokenizer
+fp16: True
+load_diffusion: True

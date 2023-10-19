@@ -1,0 +1,4 @@
+_target_: models.transforms.get_transform
+type: clip
+image_size: 224
+keep_ratio: False

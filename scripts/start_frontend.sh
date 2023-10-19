@@ -1,0 +1,1 @@
+python3 gradio_demo/seed_llama_gradio.py

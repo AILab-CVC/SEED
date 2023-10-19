@@ -1,0 +1,5 @@
+_target_: models.model_tools.get_pretrained_llama_causal_model
+pretrained_model_name_or_path: ${oc.env:PROJECT_ROOT}/pretrained/seed_llama_8b_sft
+
+torch_dtype: fp16
+low_cpu_mem_usage: True
