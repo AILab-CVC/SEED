@@ -115,4 +115,4 @@ The project is still in progress. Stay tuned for more updates!
 `SEED` is released under [Apache License Version 2.0](License.txt).
 
 ## Acknowledgement
-We utilize `Stable Diffusion` to decode images from our visual codes, and use its implementation and pre-trained model in https://github.com/CompVis/stable-diffusion. Our code is developped based on https://github.com/salesforce/LAVIS. Thanks for their wonderful works.
+We utilize `Stable Diffusion`to decode images from our visual codes and use its implementation and pre-trained model in https://github.com/CompVis/stable-diffusion. Our code is developed based on https://github.com/salesforce/LAVIS. Thanks for their wonderful works.
