@@ -81,7 +81,6 @@ def generate():
 
     request_info = request.get_json()
 
-
     text_list = request_info['text'].split(IMG_FLAG)
     image_list = request_info['images']
     temperature = request_info.get('temperature', 0.7)
@@ -89,7 +88,6 @@ def generate():
     max_new_tokens = request_info.get('max_new_tokens', 256)
     top_p = request_info.get('top_p', 0.5)
     force_boi = request_info.get('force_boi', False)
-
 
     assert len(text_list) == len(image_list) + 1
 

@@ -1,0 +1,13 @@
+torch==2.0.0+cu117
+torchvision==0.15.1+cu117
+torchaudio==2.0.1
+xformers>=0.0.20
+omegaconf
+hydra
+pyrootutils
+transformers==4.30.2
+flask
+gradio
+timm
+diffusers>=0.20.2
+einops
