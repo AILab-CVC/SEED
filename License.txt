@@ -177,7 +177,13 @@ defend, and hold each Contributor harmless for any liability
 incurred by, or claims asserted against, such Contributor by reason
 of your accepting any such warranty or additional liability.
 
-10. This code is provided for research purposes only and is not to be used for any commercial purposes. By using this code, you agree that it will be used solely for academic research, scholarly work, and non-commercial activities. Any use of this code for commercial purposes, including but not limited to, selling, distributing, or incorporating it into commercial products or services, is strictly prohibited. Violation of this clause may result in legal actions and penalties.
+10. This code is provided for research purposes only and is 
+not to be used for any commercial purposes. By using this code, 
+you agree that it will be used solely for academic research, scholarly work, 
+and non-commercial activities. Any use of this code for commercial purposes, 
+including but not limited to, selling, distributing, or incorporating it into 
+commercial products or services, is strictly prohibited. Violation of this 
+clause may result in legal actions and penalties.
 
 END OF TERMS AND CONDITIONS
 
