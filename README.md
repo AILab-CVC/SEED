@@ -20,9 +20,9 @@ The repository provides the official implementation of [SEED](https://ailab-cvc.
 
 - [x] **2023-10-20** :hugs: We release the [checkpoints](https://huggingface.co/AILab-CVC/SEED/tree/main) and code of the SEED-2 tokenizer, and SEED-LLaMA-8B/14B. 
 - [x] **2023-10-20** :space_invader: We release an online [gradio demo](https://10a4e7976e6fc2032c.gradio.live/), feel free to use it by yourself.
-- [x] **2023-10-02** :paperclip: We release the technical report of SEED-LLaMA on arXiv, which is empowered by the improved SEED-2 tokenizer.
-- [x] **2023-07-29** :octocat: We release the checkpoint of the SEED tokenizer and its inference code.
-- [x] **2023-07-16** :paperclip: We release the technical report of SEED on arXiv.
+- [x] **2023-10-02** :paperclip: We release the technical report of SEED-LLaMA on [arXiv](https://arxiv.org/abs/2310.01218), which is empowered by the improved SEED-2 tokenizer.
+- [x] **2023-07-29** :octocat: We release the checkpoint of the SEED tokenizer and its inference code. Check it out via [SEED-1](./SEED-1.md).
+- [x] **2023-07-16** :paperclip: We release the technical report of SEED on [arXiv](https://arxiv.org/abs/2307.08041).
 
 Stay tuned for the updates!
 
