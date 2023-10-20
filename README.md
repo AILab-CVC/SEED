@@ -3,7 +3,7 @@
 [![Project Homepage](https://img.shields.io/badge/Project-Homepage-green)](https://ailab-cvc.github.io/seed/)
 [![arXiv](https://img.shields.io/badge/arXiv-2307.08041-b31b1b.svg)](https://arxiv.org/abs/2307.08041)
 [![arXiv](https://img.shields.io/badge/arXiv-2310.01218-b31b1b.svg)](https://arxiv.org/abs/2310.01218)
-[![Static Badge](https://img.shields.io/badge/Model-Huggingface-orange)](https://huggingface.co/AILab-CVC/SEED/tree/main)
+[![Static Badge](https://img.shields.io/badge/Model-Huggingface-yellow)](https://huggingface.co/AILab-CVC/SEED/tree/main)
 [![Demo](https://img.shields.io/badge/Gradio-Demo-orange)](https://10a4e7976e6fc2032c.gradio.live/)
 
 
@@ -18,10 +18,10 @@ The repository provides the official implementation of [SEED](https://ailab-cvc.
 
 **:beers: We are actively looking for self-motivated interns. Please feel free to reach out if you are interested. :beers:**
 
-- [x] **2023-10-20** : We release the [checkpoints](https://huggingface.co/AILab-CVC/SEED/tree/main) and code of the SEED-2 tokenizer, and SEED-LLaMA-8B/14B. 
-- [x] **2023-10-20** : We release [online demo for SEED-LLaMA](https://10a4e7976e6fc2032c.gradio.live/), please feel free to use it by yourself.
+- [x] **2023-10-20** :hugs: We release the [checkpoints](https://huggingface.co/AILab-CVC/SEED/tree/main) and code of the SEED-2 tokenizer, and SEED-LLaMA-8B/14B. 
+- [x] **2023-10-20** :space_invader: We release an online [gradio demo](https://10a4e7976e6fc2032c.gradio.live/), feel free to use it by yourself.
 - [x] **2023-10-02** :paperclip: We release the technical report of SEED-LLaMA on arXiv, which is empowered by the improved SEED-2 tokenizer.
-- [x] **2023-07-29** :octocat: We release the checkpoint of the SEED tokenizer and its inference code. [[Getting started]](#seed-1-tokenizer)
+- [x] **2023-07-29** :octocat: We release the checkpoint of the SEED tokenizer and its inference code.
 - [x] **2023-07-16** :paperclip: We release the technical report of SEED on arXiv.
 
 Stay tuned for the updates!
@@ -137,7 +137,7 @@ If you find the work helpful, please consider citing:
 }
 ```
 
-The project is still in progress. Stay tuned for more updates!
+The project is still in progress.
 
 ## License
 `SEED` is released under [Apache License Version 2.0](License.txt). 
