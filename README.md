@@ -78,7 +78,7 @@ Clone the repo and install dependent packages
 
     
 ### Model Weights
-We release the pretrained SEED Tokenizer and De-Tokenizer, instruction tuned SEED-LLaMA-8B and SEED-LLaMA-14B in [SEED Hugging Face](https://huggingface.co/AILab-CVC/SEED). 
+We release the pretrained SEED Tokenizer and De-Tokenizer, pretrained and instruction tuned SEED-LLaMA-8B and SEED-LLaMA-14B in [SEED Hugging Face](https://huggingface.co/AILab-CVC/SEED). 
 Please download the checkpoints and save under the folder `./pretrained`.
 
 ```bash
