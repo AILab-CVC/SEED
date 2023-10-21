@@ -27,7 +27,7 @@ from conversation import conv_seed_llama_3 as conv_seed_llama
 IMG_FLAG = '<image>'
 
 # request_address = 'http://11.29.21.161:80/generate'
-request_address = 'http://0.0.0.0:7890/generate'
+# request_address = 'http://0.0.0.0:7890/generate'
 LOGDIR = 'log'
 
 logger = build_logger("gradio_seed_llama", LOGDIR)
@@ -36,6 +36,15 @@ headers = {"User-Agent": "SEED LLaMA Client"}
 no_change_btn = gr.Button.update()
 enable_btn = gr.Button.update(interactive=True)
 disable_btn = gr.Button.update(interactive=False)
+
+@dataclass
+class Arguments:
+    server_port: Optional[int] = field(default=7860, metadata={"help": "network port"})
+    server_name: Optional[str] = field(default='0.0.0.0', metadata={"help": "network address"})
+    request_address: Optional[str] = field(default='http://0.0.0.0:7890/generate', metadata={"help": "request address"})
+
+parser = transformers.HfArgumentParser(Arguments)
+args, = parser.parse_args_into_dataclasses()
 
 
 def decode_image(encoded_image: str) -> Image:
@@ -275,7 +284,7 @@ def http_bot(dialog_state, input_state, temperature, top_p, max_new_tokens, num_
             'num_beams': int(num_beams)
         })
 
-    response = requests.request(method="POST", url=request_address, headers=headers, json=payload)
+    response = requests.request(method="POST", url=args.request_address, headers=headers, json=payload)
     results = response.json()
     print('response: ', {'text': results['text'], 'images_ids': results['images_ids'], 'error_msg': results['error_msg']})
 
@@ -477,4 +486,4 @@ if __name__ == '__main__':
         
         demo.load(load_demo, None, [dialog_state, input_state])
 
-    demo.launch(server_name="0.0.0.0", server_port=80, enable_queue=True)
+    demo.launch(server_name=args.server_name, server_port=args.server_port, enable_queue=True)
