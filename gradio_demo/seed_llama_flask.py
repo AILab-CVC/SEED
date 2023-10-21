@@ -49,6 +49,7 @@ class Arguments:
     port: Optional[str] = field(default=80, metadata={"help": "network port"})
     llm_device: Optional[str] = field(default='cuda:0', metadata={"help": "llm device"})
     tokenizer_device: Optional[str] = field(default='cuda:0', metadata={"help": "tokenizer device"})
+    offload_tokenizer: Optional[bool] = field(default=False, metadata={"help": "offload image tokenizer"})
 
 
 parser = transformers.HfArgumentParser(Arguments)
@@ -63,11 +64,13 @@ class LLMService:
         self.image_id_shift = 32000
 
         self.image_transform = hydra.utils.instantiate(image_transform_cfg)
-        self.tokenizer = hydra.utils.instantiate(tokenizer_cfg, device=args.tokenizer_device, load_diffusion=True)
+        tokenizer_device = 'cpu' if args.offload_tokenizer else args.tokenizer_device
+        self.tokenizer = hydra.utils.instantiate(tokenizer_cfg, device=tokenizer_device, load_diffusion=True)
         model = hydra.utils.instantiate(model_cfg, torch_dtype=torch.float16)
         self.model = model.eval().to(args.llm_device)
         self.llm_device = args.llm_device
         self.tokenizer_device = args.tokenizer_device
+        self.offload_tokenizer = args.offload_tokenizer
         self.boi_token_id = self.tokenizer(BOI_TOKEN, add_special_tokens=False).input_ids[0]
         self.eoi_token_id = self.tokenizer(EOI_TOKEN, add_special_tokens=False).input_ids[0]
         print('Init Done...')
@@ -108,7 +111,11 @@ def generate():
 
         if len(images_tensor_list) > 0:
             images_tensor = torch.stack(images_tensor_list, dim=0).to(service.tokenizer_device)
+            if args.offload_tokenizer:
+                service.tokenizer.image_tokenizer.model.to(service.tokenizer_device)
             images_ids_1 = service.tokenizer.encode_image(image_torch=images_tensor).cpu()
+            if args.offload_tokenizer:
+                service.tokenizer.image_tokenizer.model.to('cpu')
             num_image_ids = images_ids_1.shape[-1]
         else:
             num_image_ids = len(images_ids_list[-1])
@@ -181,7 +188,11 @@ def generate():
             error_msg.append(f'Some image_id out of range: [0, {NUM_IMG_CODES})')
             image_base64 = ''
         else:
+            if service.offload_tokenizer:
+                service.tokenizer.image_tokenizer.diffusion_model.to(service.tokenizer_device)
             image = service.tokenizer.decode_image(image_ids)[0]
+            if service.offload_tokenizer:
+                service.tokenizer.image_tokenizer.diffusion_model.to('cpu')
             image_base64 = encode_image(image)
 
         generated_image_base64_list.append(image_base64)

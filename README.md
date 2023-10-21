@@ -88,7 +88,11 @@ git clone https://huggingface.co/AILab-CVC/SEED
 mv SEED/* ./
 ```
 
-To reconstruct the image from the SEED visual codes using unCLIP SD-UNet, please download the pretrained [unCLIP SD](https://huggingface.co/stabilityai/stable-diffusion-2-1-unclip).
+The model weights of unCLIP SD-UNet which are used to reconstruct the image will be downloaded automatically.
+
+<!-- To reconstruct the image from the SEED visual codes using unCLIP SD-UNet, please download the pretrained [unCLIP SD](https://huggingface.co/stabilityai/stable-diffusion-2-1-unclip).  -->
+
+<!-- To reconstruct the image from the SEED visual codes using unCLIP SD-UNet, please download the pretrained [unCLIP SD](https://huggingface.co/stabilityai/stable-diffusion-2-1-unclip).
 Rename the checkpoint directory to **"diffusion_model"** and create a soft link to the "pretrained/seed_tokenizer" directory.
 
 ```bash
@@ -96,7 +100,7 @@ Rename the checkpoint directory to **"diffusion_model"** and create a soft link 
 git lfs install
 git clone https://huggingface.co/stabilityai/stable-diffusion-2-1-unclip
 mv stable-diffusion-2-1-unclip seed_tokenizer/diffusion_model
-```
+``` -->
 
 
 ### Inference for visual tokenization and de-tokenization

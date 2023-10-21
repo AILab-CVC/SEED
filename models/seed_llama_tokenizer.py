@@ -140,7 +140,8 @@ class SeedLlamaTokenizer(LlamaTokenizer):
         assert hasattr(self, 'name_or_path') and os.path.exists(self.name_or_path)
         if not hasattr(self, '_image_tokenizer'):
             model_path = os.path.join(self.name_or_path, WEIGHTS_NAME)
-            diffusion_model_path = os.path.join(self.name_or_path, DIFFUSION_NAME)
+            # diffusion_model_path = os.path.join(self.name_or_path, DIFFUSION_NAME)
+            diffusion_model_path = 'stabilityai/stable-diffusion-2-1-unclip'
             self._image_tokenizer = ImageTokenizer(model_path=model_path,
                                                    diffusion_model_path=diffusion_model_path,
                                                    load_diffusion=self.load_diffusion,
@@ -153,7 +154,8 @@ class SeedLlamaTokenizer(LlamaTokenizer):
         if not hasattr(self, '_image_tokenizer'):
 
             model_path = os.path.join(self.name_or_path, WEIGHTS_NAME)
-            diffusion_model_path = os.path.join(self.name_or_path, DIFFUSION_NAME)
+            # diffusion_model_path = os.path.join(self.name_or_path, DIFFUSION_NAME)
+            diffusion_model_path = 'stabilityai/stable-diffusion-2-1-unclip'
             self._image_tokenizer = ImageTokenizer(model_path=model_path,
                                                    diffusion_model_path=diffusion_model_path,
                                                    load_diffusion=self.load_diffusion,
