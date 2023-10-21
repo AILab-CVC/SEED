@@ -1,5 +1,5 @@
-torch==2.0.0+cu117
-torchvision==0.15.1+cu117
+torch==2.0.0
+torchvision==0.15.1
 torchaudio==2.0.1
 xformers>=0.0.20
 omegaconf
