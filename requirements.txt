@@ -1,6 +1,6 @@
-torch==2.0.0
-torchvision==0.15.1
-torchaudio==2.0.1
+torch==2.0.1
+torchvision
+torchaudio
 xformers>=0.0.20
 omegaconf
 hydra
