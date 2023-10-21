@@ -110,6 +110,19 @@ To discretize an image to 1D visual codes with causal dependency, and reconstruc
 cd ..   # SEED/ 
 python scripts/seed_tokenizer_inference.py
 ```
+### Inference for SEED-LLaMA
+Given that SEED-LLaMA-8B is based on Vicuna-7B and SEED-LLaMA-14B based on LLaMA2-Chat-13B, we use Vicuna-7B's ("USER:", "ASSISTANT:") and LLaMA2-Chat-13B's ([INST] [/INST]) prompts for respective instruction tuning.
+
+```bash
+# Inference for SEED-LLaMA-8B
+python scripts/seed_llama_inference_8B.py
+```
+
+```bash
+# Inference for SEED-LLaMA-14B
+python scripts/seed_llama_inference_14B.py
+```
+
 
 ### Launching Gradio Demo of SEED-LLaMA-14B Locally 
 Building the local demo of SEED-LLaMA-14B currently requires 2*32GB devices.
