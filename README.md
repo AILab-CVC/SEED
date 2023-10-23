@@ -80,15 +80,20 @@ Clone the repo and install dependent packages
 
     
 ### Model Weights
-We release the pretrained SEED Tokenizer and De-Tokenizer, pretrained and instruction tuned SEED-LLaMA-8B and SEED-LLaMA-14B in [SEED Hugging Face](https://huggingface.co/AILab-CVC/SEED). 
-Please download the checkpoints and save under the folder `./pretrained`.
+We release the pretrained SEED Tokenizer and De-Tokenizer, pretrained and instruction tuned SEED-LLaMA-8B and SEED-LLaMA-14B in [SEED Hugging Face](https://huggingface.co/AILab-CVC/SEED).
+
+- Check the SEED tokenizer weights in [AILab-CVC/seed-tokenizer-2](https://huggingface.co/AILab-CVC/seed-tokenizer-2)
+- Check the SEED LLaMA(8B) weights in [AILab-CVC/seed-llama-8b-sft](https://huggingface.co/AILab-CVC/seed-llama-8b-sft)
+- Check the SEED LLaMA(14B) weights in [AILab-CVC/seed-llama-14b-sft](https://huggingface.co/AILab-CVC/seed-llama-14b-sft)
+
+<!-- Please download the checkpoints and save under the folder `./pretrained`.
 
 ```bash
 cd pretrained   # SEED/pretrained
 git lfs install
 git clone https://huggingface.co/AILab-CVC/SEED
 mv SEED/* ./
-```
+``` -->
 
 The model weights of unCLIP SD-UNet which are used to reconstruct the image will be downloaded automatically.
 
@@ -127,7 +132,7 @@ python scripts/seed_llama_inference_14B.py
 
 
 ### Launching Gradio Demo of SEED-LLaMA-14B Locally 
-1. Building the local demo of SEED-LLaMA-14B currently requires **single** 24GB GPU.
+1. Building the local demo of SEED-LLaMA-14B currently requires **single 24GB** GPU.
 
 ```bash
 # SEED/
@@ -137,7 +142,7 @@ bash scripts/start_backend_14b.sh
 bash scripts/start_frontend_14b.sh
 ``` 
 
-2. Building the local demo of SEED-LLaMA-8B currently requires **single** 16GB GPU.
+2. Building the local demo of SEED-LLaMA-8B currently requires **single 16GB** GPU.
 
 ```bash
 # SEED/
