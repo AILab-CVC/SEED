@@ -364,7 +364,9 @@ class Blip2QformerQuantizer(Blip2Base):
         )
 
         if pretrained_model_path.startswith('http'):
+            print('start download seed model...')
             cached_file = download_cached_file(pretrained_model_path, check_hash=False, progress=True)
+            print(cached_file)
             ckpt = torch.load(cached_file, map_location="cpu")
         else:
             ckpt = torch.load(pretrained_model_path, map_location="cpu")

@@ -1,5 +1,5 @@
 _target_: transformers.LlamaForCausalLM.from_pretrained
-pretrained_model_name_or_path: ${oc.env:PROJECT_ROOT}/pretrained/seed_llama_14b_sft
+pretrained_model_name_or_path: AILab-CVC/seed-llama-14b-sft
 load_in_8bit: True
 # device_map: auto
 low_cpu_mem_usage: True
