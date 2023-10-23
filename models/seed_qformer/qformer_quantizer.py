@@ -17,7 +17,7 @@ from einops import rearrange
 
 from .blip2 import Blip2Base, disabled_train
 from .vit import Block
-
+from .utils import download_cached_file, is_url
 
 class VectorQuantizer2(nn.Module):
     """
@@ -363,7 +363,11 @@ class Blip2QformerQuantizer(Blip2Base):
             max_txt_len=max_txt_len,
         )
 
-        ckpt = torch.load(pretrained_model_path, map_location="cpu")
+        if pretrained_model_path.startswith('http'):
+            cached_file = download_cached_file(pretrained_model_path, check_hash=False, progress=True)
+            ckpt = torch.load(cached_file, map_location="cpu")
+        else:
+            ckpt = torch.load(pretrained_model_path, map_location="cpu")
         missing, unexcepted = model.load_state_dict(ckpt, strict=False)
         print('missing keys: ', len(missing), 'unexpected keys:', len(unexcepted))
         return model

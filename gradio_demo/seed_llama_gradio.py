@@ -21,7 +21,7 @@ import hashlib
 import requests
 
 from utils import build_logger
-from conversation import conv_seed_llama_3 as conv_seed_llama
+from conversation import conv_seed_vicuna, conv_seed_llama2
 # from conversation import conv_seed_llama
 
 IMG_FLAG = '<image>'
@@ -41,10 +41,18 @@ disable_btn = gr.Button.update(interactive=False)
 class Arguments:
     server_port: Optional[int] = field(default=7860, metadata={"help": "network port"})
     server_name: Optional[str] = field(default='0.0.0.0', metadata={"help": "network address"})
-    request_address: Optional[str] = field(default='http://0.0.0.0:7890/generate', metadata={"help": "request address"})
+    request_address: Optional[str] = field(default='http://127.0.0.1:7890/generate', metadata={"help": "request address"})
+    model_type: Optional[str] = field(default='seed-llama-14b', metadata={"help": "choice: [seed-llama-8b, seed-llama-14b]"})
 
 parser = transformers.HfArgumentParser(Arguments)
 args, = parser.parse_args_into_dataclasses()
+
+if args.model_type == 'seed-llama-8b':
+    conv_seed_llama = conv_seed_vicuna
+elif args.model_type == 'seed-llama-14b':
+    conv_seed_llama = conv_seed_llama2
+else:
+    raise ValueError
 
 
 def decode_image(encoded_image: str) -> Image:
@@ -283,7 +291,7 @@ def http_bot(dialog_state, input_state, temperature, top_p, max_new_tokens, num_
             'max_new_tokens': int(max_new_tokens),
             'num_beams': int(num_beams)
         })
-
+    print('request_address', args.request_address)
     response = requests.request(method="POST", url=args.request_address, headers=headers, json=payload)
     results = response.json()
     print('response: ', {'text': results['text'], 'images_ids': results['images_ids'], 'error_msg': results['error_msg']})

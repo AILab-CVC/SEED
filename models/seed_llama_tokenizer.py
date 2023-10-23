@@ -81,7 +81,8 @@ class ImageTokenizer(nn.Module):
         if len(image_torch.shape) == 3:
             image_torch = image_torch.unsqueeze(0)
 
-        img = image_torch.to(self.device)
+        # img = image_torch.to(self.device)
+        img = image_torch
         if self.fp16:
             img = img.half()
         with torch.no_grad():
@@ -126,6 +127,7 @@ class SeedLlamaTokenizer(LlamaTokenizer):
                  device='cuda',
                  fp16=True,
                  load_diffusion=False,
+                 encoder_url=None,
                  **kwargs):
         super().__init__(vocab_file, unk_token, bos_token, eos_token, pad_token, sp_model_kwargs, add_bos_token, add_eos_token,
                          clean_up_tokenization_spaces, **kwargs)
@@ -133,13 +135,17 @@ class SeedLlamaTokenizer(LlamaTokenizer):
         self.fp16 = fp16
         self.pad_token = self.unk_token
         self.load_diffusion = load_diffusion
+        self.encoder_url = encoder_url
         
         self.load_image_tokenizer()
 
     def load_image_tokenizer(self):
         assert hasattr(self, 'name_or_path') and os.path.exists(self.name_or_path)
         if not hasattr(self, '_image_tokenizer'):
-            model_path = os.path.join(self.name_or_path, WEIGHTS_NAME)
+            if self.encoder_url is not None:
+                model_path = self.encoder_url
+            else:
+                model_path = os.path.join(self.name_or_path, WEIGHTS_NAME)
             # diffusion_model_path = os.path.join(self.name_or_path, DIFFUSION_NAME)
             diffusion_model_path = 'stabilityai/stable-diffusion-2-1-unclip'
             self._image_tokenizer = ImageTokenizer(model_path=model_path,
@@ -152,8 +158,10 @@ class SeedLlamaTokenizer(LlamaTokenizer):
     def image_tokenizer(self):
         assert hasattr(self, 'name_or_path') and os.path.exists(self.name_or_path)
         if not hasattr(self, '_image_tokenizer'):
-
-            model_path = os.path.join(self.name_or_path, WEIGHTS_NAME)
+            if self.encoder_url is not None:
+                model_path = self.encoder_url
+            else:
+                model_path = os.path.join(self.name_or_path, WEIGHTS_NAME)
             # diffusion_model_path = os.path.join(self.name_or_path, DIFFUSION_NAME)
             diffusion_model_path = 'stabilityai/stable-diffusion-2-1-unclip'
             self._image_tokenizer = ImageTokenizer(model_path=model_path,
@@ -188,7 +196,7 @@ class SeedLlamaTokenizer(LlamaTokenizer):
         if image_pil is not None:
             image_torch = self.image_tokenizer.processor(image_pil)
 
-        image_torch = image_torch.to(self.device)
+            image_torch = image_torch.to(self.device)
         return self.image_tokenizer.encode(image_torch)
 
     def decode_image(self, indices, negative_indices=None, guidance_scale=10):

@@ -10,4 +10,5 @@ flask
 gradio
 timm
 diffusers>=0.20.2
+accelerate
 einops

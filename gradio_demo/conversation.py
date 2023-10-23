@@ -159,7 +159,7 @@ class Conversation:
         }
 
 
-conv_seed_llama = Conversation(
+conv_seed_vicuna = Conversation(
     system="",
     roles=("USER", "ASSISTANT"),
     version="v2",
@@ -169,7 +169,7 @@ conv_seed_llama = Conversation(
     sep='\n',
 )
 
-conv_seed_llama_2 = Conversation(
+conv_seed_vicuna_system = Conversation(
     system="A chat between a curious user and an artificial intelligence assistant. ",
     roles=("USER", "ASSISTANT"),
     version="v2",
@@ -179,7 +179,7 @@ conv_seed_llama_2 = Conversation(
     sep='\n',
 )
 
-conv_seed_llama_3 = Conversation(
+conv_seed_llama2 = Conversation(
     system="",
     roles=("[INST]", "[/INST]"),
     version="v2",
