@@ -6,7 +6,7 @@ import os
 
 pyrootutils.setup_root(__file__, indicator='.project-root', pythonpath=True)
 
-tokenizer_cfg_path = 'configs/tokenizer/seed_llama_tokenizer.yaml'
+tokenizer_cfg_path = 'configs/tokenizer/seed_llama_tokenizer_hf.yaml'
 transform_cfg_path = 'configs/transform/clip_transform.yaml'
 
 image_path = 'images/cat.jpg'

@@ -66,7 +66,7 @@ def decode_image_text(generate_ids, tokenizer, save_path=None):
 
 device = "cuda"
 
-tokenizer_cfg_path = 'configs/tokenizer/seed_llama_tokenizer.yaml'
+tokenizer_cfg_path = 'configs/tokenizer/seed_llama_tokenizer_hf.yaml'
 tokenizer_cfg = OmegaConf.load(tokenizer_cfg_path)
 tokenizer = hydra.utils.instantiate(tokenizer_cfg, device=device, load_diffusion=True)
 

@@ -9,6 +9,7 @@ transformers==4.30.2
 flask
 gradio
 timm
-diffusers>=0.20.2
+diffusers==0.20.2
 accelerate
 einops
+sentencepiece
