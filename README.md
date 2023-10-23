@@ -18,8 +18,8 @@ The repository provides the official implementation of [SEED](https://ailab-cvc.
 
 **:beers: We are actively looking for self-motivated interns. Please feel free to reach out if you are interested. :beers:**
 
-- [x] **2023-10-23** :hugs: We have optimized the memory overhead. Through 8bit quantization and dynamic loading, seed-llama 8b/14b can run on a single 16GB/24GB device.
-- [x] **2023-10-23** :hugs: All model weights will be downloaded automatically when starting the demo.
+- [x] **2023-10-23** :hugs: We have optimized the memory overhead. Through 8bit quantization and dynamic loading, SEED-LLaMA 8b/14B can run on single **16GB/24GB** GPU.
+- [x] **2023-10-23** :hugs: All model weights will be **downloaded automatically** when starting the demo.
 - [x] **2023-10-20** :hugs: We release the [checkpoints](https://huggingface.co/AILab-CVC/SEED/tree/main) and code of the SEED-2 tokenizer, and SEED-LLaMA-8B/14B. 
 - [x] **2023-10-20** :space_invader: We release an online [gradio demo](https://10a4e7976e6fc2032c.gradio.live/), feel free to use it by yourself.
 - [x] **2023-10-02** :paperclip: We release the technical report of SEED-LLaMA on [arXiv](https://arxiv.org/abs/2310.01218), which is empowered by the improved SEED-2 tokenizer.
