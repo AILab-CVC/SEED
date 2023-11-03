@@ -2,3 +2,4 @@ pretrained/*
 !pretrained/.gitkeep
 **/__pycache__/**
 log/
+temp/
