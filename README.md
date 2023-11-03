@@ -18,7 +18,7 @@ The repository provides the official implementation of [SEED](https://ailab-cvc.
 
 **:beers: We are actively looking for self-motivated interns. Please feel free to reach out if you are interested. :beers:**
 
-- [x] **2023-10-23** :hugs: We have released the demo of [seed-llama-v2-1](https://10a4e7976e6fc2032c.gradio.live/), and the quality of generated images has been greatly improved, feel free to use it by yourself.
+- [x] **2023-11-03** :hugs: We have released the demo of [seed-llama-v2-1](https://10a4e7976e6fc2032c.gradio.live/), and the quality of generated images has been greatly improved, feel free to use it by yourself.
 
   ![image](https://github.com/AILab-CVC/SEED/blob/main/images/teaser_v2-1.png)
 
