@@ -4,7 +4,7 @@
 [![arXiv](https://img.shields.io/badge/arXiv-2307.08041-b31b1b.svg)](https://arxiv.org/abs/2307.08041)
 [![arXiv](https://img.shields.io/badge/arXiv-2310.01218-b31b1b.svg)](https://arxiv.org/abs/2310.01218)
 [![Static Badge](https://img.shields.io/badge/Model-Huggingface-yellow)](https://huggingface.co/AILab-CVC/SEED/tree/main)
-[![Demo](https://img.shields.io/badge/Gradio-Demo-orange)](https://10a4e7976e6fc2032c.gradio.live/)
+[![Demo](https://img.shields.io/badge/Gradio-Demo-orange)](https://dad1ed9a9fb76fe83b.gradio.live/)
 
 
 **Powered by [CV Center, Tencent AI Lab](https://ailab-cvc.github.io), and [ARC Lab, Tencent PCG](https://github.com/TencentARC).**
