@@ -13,3 +13,4 @@ diffusers==0.20.2
 accelerate
 einops
 sentencepiece
+gradio==3.50.0
