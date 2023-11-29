@@ -4,7 +4,7 @@
 [![arXiv](https://img.shields.io/badge/arXiv-2307.08041-b31b1b.svg)](https://arxiv.org/abs/2307.08041)
 [![arXiv](https://img.shields.io/badge/arXiv-2310.01218-b31b1b.svg)](https://arxiv.org/abs/2310.01218)
 [![Static Badge](https://img.shields.io/badge/Model-Huggingface-yellow)](https://huggingface.co/AILab-CVC/SEED/tree/main)
-[![Demo](https://img.shields.io/badge/Gradio-Demo-orange)](https://dad1ed9a9fb76fe83b.gradio.live/)
+[![Demo](https://img.shields.io/badge/Gradio-Demo-orange)](https://c0c18bb50ca9b78b8f.gradio.live/)
 
 
 **Powered by [CV Center, Tencent AI Lab](https://ailab-cvc.github.io), and [ARC Lab, Tencent PCG](https://github.com/TencentARC).**
@@ -18,7 +18,7 @@ The repository provides the official implementation of [SEED](https://ailab-cvc.
 
 **:beers: We are actively looking for self-motivated interns. Please feel free to reach out if you are interested. :beers:**
 
-- [x] **2023-11-03** :hugs: We have released the demo of [seed-llama-v2-1](https://dad1ed9a9fb76fe83b.gradio.live/), and the quality of generated images has been greatly improved, feel free to use it by yourself.
+- [x] **2023-11-03** :hugs: We have released the demo of [seed-llama-v2-1](https://c0c18bb50ca9b78b8f.gradio.live/), and the quality of generated images has been greatly improved, feel free to use it by yourself.
 
   ![image](https://github.com/AILab-CVC/SEED/blob/main/images/teaser_v2-1.png)
 
