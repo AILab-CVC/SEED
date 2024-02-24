@@ -18,6 +18,8 @@ The repository provides the official implementation of [SEED](https://ailab-cvc.
 
 **:beers: We are actively looking for self-motivated interns. Please feel free to reach out if you are interested. :beers:**
 
+- [x] **2024-02-24** :hugs: We have released the **training code** of SEED-LLaMa, including SEED tokenizer, Multimodal LLM pretraining and instruction tuning. Our Multimodal LLM training codebase supports 1. large-scale multi-node training with deepspeed 2. highly-efficient multiple training datapipes.
+
 - [x] **2023-11-03** :hugs: We have released the demo of [seed-llama-v2-1](https://c0c18bb50ca9b78b8f.gradio.live/), and the quality of generated images has been greatly improved, feel free to use it by yourself.
 
   ![image](https://github.com/AILab-CVC/SEED/blob/main/images/teaser_v2-1.png)
