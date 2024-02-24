@@ -1,0 +1,9 @@
+_target_: colossalai.booster.plugin.HybridParallelPlugin
+tp_size: 2
+pp_size: 2
+num_microbatches: null
+microbatch_size: 1
+enable_jit_fused: False
+zero_stage: 0
+precision: bf16
+initial_scale: 1

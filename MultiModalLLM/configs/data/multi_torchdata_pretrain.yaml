@@ -1,0 +1,75 @@
+
+_target_: src.data.torchdata_train.build_multi_datapipes
+_recursive_: False
+datapipes:
+  - _target_: src.data.torchdata_train.build_caption_datapipes_for_llm
+    data_dir: 
+        - dataset/seed_v2_0828/caption/unsplash_cc3m
+        - dataset/seed_v2_0828/caption/coco
+    max_length: 200
+    caption_prompt: null
+    reverse_ratio: 0.5
+    mask_left_label: False
+    use_caption_in_metadata: False
+    recursive: True
+    batch_size: 116  
+    cycle_count: 7
+
+  - _target_: src.data.torchdata_train.build_caption_datapipes_for_llm
+    data_dir: /dataset/seed_v2_0828/caption/laion-coco
+    max_length: 140
+    caption_prompt: null
+    reverse_ratio: 0.5
+    mask_left_label: False
+    use_caption_in_metadata: False
+    recursive: True
+    batch_size: 164 
+    cycle_count: 2
+
+  - _target_: src.data.torchdata_train.build_mmc4_datapipes_for_llm
+    data_dir: dataset/seed_v2_0828/image_interleaved/mmc4
+    max_length: 1024
+    reverse_ratio: 0.5
+    max_images: 7
+    recursive: True
+    batch_size: 26
+    cycle_count: 3
+  
+  - _target_: src.data.torchdata_train.build_mmc4_datapipes_for_llm
+    data_dir: dataset/seed_v2_0828/image_interleaved/obelisc
+    max_length: 1024
+    reverse_ratio: 0.0
+    max_images: 7
+    recursive: True
+    batch_size: 26 
+    cycle_count: 1
+  
+  - _target_: src.data.torchdata_train.build_video_caption_datapipes_for_llm
+    data_dir: dataset/seed_v2_0828/caption/WebVid-10m
+    max_length: 200
+    recursive: True
+    batch_size: 116 
+    cycle_count: 5
+
+  - _target_: src.data.torchdata_train.build_text_pretrain_datapipes_for_llm
+    data_dir: dataset/wikipedia_20220301.en
+    max_length: 1024
+    recursive: True
+    batch_size: 26 
+    cycle_count: 3
+
+
+concat_type: 'sample'
+sample_weights:
+  - 0.5 
+  - 5.0 
+  - 2.0 
+  - 1.0 
+  - 0.5 
+  - 1.0
+
+
+  
+  
+
+      

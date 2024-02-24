@@ -1,0 +1,7 @@
+_target_: src.model.peft_model.get_peft_model_with_resize_embedding
+model:   
+  _target_: src.model.llama_xformer.LlamaForCausalLM.from_pretrained
+  pretrained_model_name_or_path: pretrained/vicuna-7b-v1.1
+
+model_id: ???
+tokenizer: ???

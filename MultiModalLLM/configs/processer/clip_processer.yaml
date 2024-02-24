@@ -1,0 +1,2 @@
+_target_: transformers.CLIPImageProcessor.from_pretrained
+pretrained_model_name_or_path: ${oc.env:PROJECT_ROOT}/pretrained/stable-diffusion-2-1-unclip/feature_extractor

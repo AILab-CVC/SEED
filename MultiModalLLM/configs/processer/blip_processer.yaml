@@ -1,0 +1,2 @@
+_target_: transformers.BlipImageProcessor.from_pretrained
+pretrained_model_name_or_path: ${oc.env:PROJECT_ROOT}/pretrained/blip2-opt-2.7b

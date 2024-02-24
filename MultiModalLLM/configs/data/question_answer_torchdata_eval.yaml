@@ -1,0 +1,3 @@
+_target_: src.data.torchdata_eval.build_question_answer_datapipes
+data_dir: data/sft_data/VQAv2
+max_length: 512

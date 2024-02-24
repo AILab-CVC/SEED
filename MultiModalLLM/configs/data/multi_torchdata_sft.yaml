@@ -1,0 +1,200 @@
+_target_: src.data.torchdata_sft.build_multi_datapipes
+_recursive_: False
+datapipes:
+
+  # 141k
+  - _target_: src.data.torchdata_sft.build_difference_datapipes_for_llm
+    data_dir: data/tokenizer_data/MIMICIT_CGD
+    max_length: 200
+    batch_size: 160
+    cycle_count: 100
+    reverse_ratio: 0.0
+
+    # 10k
+  - _target_: src.data.torchdata_sft.build_story_datapipes_for_llm
+    data_dir: data/tokenizer_data/VIST
+    max_length: 360
+    batch_size: 80
+    cycle_count: 100
+    reverse_ratio: 0.0
+
+    # 1044k
+  - _target_: src.data.torchdata_sft.build_edit_datapipes_for_llm
+    data_dir: 
+      - data/tokenizer_data/MagicBrush
+      - data/tokenizer_data/instruct-pix2pix
+    max_length: 100
+    batch_size: 256  # 128
+    cycle_count: 30
+  
+
+  # 58k
+  - _target_: src.data.torchdata_sft.build_conversation_datapipes_for_llm
+    data_dir: data/tokenizer_data/LLaVA_conversation
+    max_length: 512
+    batch_size: 60
+    cycle_count: 100
+
+  # 300k
+  - _target_: src.data.torchdata_sft.build_conversation_datapipes_for_llm
+    data_dir: data/tokenizer_data/SVIT
+    max_length: 1024
+    batch_size: 32
+    cycle_count: 50
+
+  # 400k
+  - _target_: src.data.torchdata_sft.build_qa_datapipes_for_llm
+    data_dir: 
+      - data/tokenizer_data/VQAv2
+    max_length: 100
+    batch_size: 256
+    cycle_count: 30
+    reverse_ratio: 0.0
+
+  # 29k + 17k
+  - _target_: src.data.torchdata_sft.build_qa_datapipes_for_llm
+    data_dir: 
+      - data/tokenizer_data/OK-VQA
+      - data/tokenizer_data/VizWiz
+      - data/tokenizer_data/A-OKVQA
+    max_length: 100
+    batch_size: 256
+    cycle_count: 100
+    reverse_ratio: 0.0
+
+  # 50k
+  - _target_: src.data.torchdata_sft.build_conversation_datapipes_for_llm
+    data_dir: 
+      - data/tokenizer_data/VisDial
+    max_length: 360
+    batch_size: 80
+    cycle_count: 100
+    reverse_ratio: 0.0
+
+  # 118k
+  - _target_: src.data.torchdata_sft.build_qa_datapipes_for_llm
+    data_dir: 
+      - data/tokenizer_data/coco_caption
+    max_length: 100
+    batch_size: 256
+    cycle_count: 30
+    reverse_ratio: 0.5
+
+  # 20k
+  - _target_: src.data.torchdata_sft.build_video_datapipes_for_llm
+    data_dir: 
+      - data/tokenizer_data/MSR-VTT_caption
+      - data/tokenizer_data/MSR-VTT_qa
+      - data/tokenizer_data/MSVD_caption
+      - data/tokenizer_data/MSVD_qa
+    max_length: 200
+    batch_size: 160
+    cycle_count: 100
+
+  # 37k + 15k
+  - _target_: src.data.torchdata_sft.build_video_datapipes_for_llm
+    data_dir: 
+      - data/tokenizer_data/NextQA
+      - data/tokenizer_data/ActivityNet-QA
+    max_length: 360
+    batch_size: 80
+    cycle_count: 100
+
+  # 58k
+  - _target_: src.data.torchdata_sft.build_video_datapipes_for_llm
+    data_dir: 
+      - data/tokenizer_data/Video-ChatGPT
+    max_length: 512
+    batch_size: 60
+    cycle_count: 100
+  
+  # 1000k
+  - _target_: src.data.torchdata_sft.build_visual_question_datapipes_for_llm
+    data_dir:
+      - data/tokenizer_data/llava_cc3m_595k
+      - data/tokenizer_data/lrv_instruction_326k
+    max_length: 400
+    system_message: ''
+    roles:
+      - USER
+      - ASSISTANT
+    # sep: '\n'
+    recursive: True
+    batch_size: 80  # 58 # 58
+    cycle_count: 20
+
+   # 2374k
+  - _target_: src.data.torchdata_sft.build_qa_datapipes_for_llm
+    data_dir: 
+      - data/tokenizer_data/JourneyDB_all
+    max_length: 128
+    batch_size: 200
+    cycle_count: 30
+    reverse_ratio: -1.0
+
+
+  # 2290k
+  - _target_: src.data.torchdata_sft.build_qa_datapipes_for_llm
+    data_dir: 
+      - data/tokenizer_data/Laion-aesthetic
+    max_length: 100
+    batch_size: 256
+    cycle_count: 30
+    reverse_ratio: -1.0
+
+  # # 316K
+  - _target_: src.data.torchdata_sft.build_qa_datapipes_for_llm
+    data_dir: 
+      - data/tokenizer_data/TextCaps
+      - data/tokenizer_data/TextVQA
+      - data/tokenizer_data/OCR-VQA
+    max_length: 100
+    batch_size: 256
+    cycle_count: 100
+    reverse_ratio: 0.0
+
+  # 20k
+  - _target_: src.data.torchdata_sft.build_conversation_datapipes_for_llm
+    data_dir: data/tokenizer_data/LLaVAR
+    max_length: 360
+    batch_size: 80
+    cycle_count: 100
+
+  #7k
+  - _target_: src.data.torchdata_sft.build_qa_datapipes_for_llm
+    data_dir: 
+      - data/tokenizer_data/VSR
+    max_length: 100
+    batch_size: 256
+    cycle_count: 30
+    reverse_ratio: 0.0
+    
+concat_type: 'sample'
+sample_weights:
+  - 0.15
+  - 0.08
+  - 0.5
+  - 0.15
+  - 0.2
+  - 0.2
+  - 0.1
+  - 0.15
+  - 0.2
+  - 0.1
+  - 0.15
+  - 0.2
+  - 0.4
+  - 0.5
+  - 0.5
+  - 0.1
+  - 0.08
+  - 0.05
+
+
+
+
+
+  
+  
+
+      

@@ -1,0 +1,5 @@
+_target_: colossalai.booster.plugin.GeminiPlugin
+precision: bf16
+placement_policy: auto
+initial_scale: 65536
+max_norm: 1.0

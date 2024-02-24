@@ -1,0 +1,2 @@
+_target_: src.data.coco_caption.CocoCapAnn30K
+ann_path: ${oc.env:PROJECT_ROOT}/data/coco_caption/captions_annotations_val2014_30k.json

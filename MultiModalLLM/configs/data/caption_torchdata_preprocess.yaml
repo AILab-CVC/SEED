@@ -1,0 +1,11 @@
+_target_: src.data.torchdata_preprocess.build_caption_datapipes_with_pixels
+data_dir: 
+  - ${oc.env:PROJECT_ROOT}/data/unsplash_resize/webdataset
+  - CC3M/webdataset/gcc3m_shards
+
+max_length: 77
+similarity_thr: 0.25
+min_resolution: 180
+min_aspect_ratio: 0.55
+use_caption_in_metadata: False
+caption_key_in_metadata: 'top_caption'
