@@ -22,7 +22,7 @@ from lavis.models.blip2_models.blip2 import (
 )
 from lavis.models.blip_models.blip_outputs import BlipOutput, BlipOutputFeatures
 from taming.taming.modules.vqvae.quantize_semantic import VectorQuantizer2 as VectorQuantizer
-from stable_diffusion.ldm.modules.encoders.modules import FrozenCLIPEmbedder
+#from stable_diffusion.ldm.modules.encoders.modules import FrozenCLIPEmbedder
 from lavis.models.vit import Block
 from transformers import CLIPVisionModelWithProjection
 
@@ -78,7 +78,7 @@ class Blip2QformerCodebookAllImage(Blip2Base):
         self.recon_s = True
         self.distill_image = True
         self.blocks_for_image = True
-        self.distill_text = True
+        self.distill_text = False
         self.blocks_for_text = True
         self.discrete = True
         self.use_qformer_image = True
