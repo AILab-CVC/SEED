@@ -160,6 +160,79 @@ bash scripts/start_frontend_8b.sh
 
 Then the demo can be accessed through http://127.0.0.1:80
 
+## Training SEED-LLaMA
+### Training SEED Tokenization based on [LAVIS](https://github.com/salesforce/LAVIS)
+1. Installation
+```bash
+cd SEED/SEED_Tokenizer
+sh install.sh
+``` 
+
+2. Download pre-trained Q-Former from [BLIP-2](https://storage.googleapis.com/sfr-vision-language-research/LAVIS/models/BLIP2/blip2_pretrained.pth) and put the checkpoint under the folder "pretrained".
+
+3. Training Causal Q-Former
+
+```bash
+sh train_scripts/causal_qformer.sh
+``` 
+
+4. Download [CLIP](https://huggingface.co/laion/CLIP-ViT-H-14-laion2B-s32B-b79K) for unCLIP-SD and put the checkpoint under the folder "pretrained".
+
+5. Training SEED Tokenizer and De-Tokenizer
+```bash
+sh train_scripts/codebook.sh
+``` 
+
+### Multimodal LLM Pre-training and instruction truning
+1. Installation
+```bash
+cd SEED
+pip install -r requirements.txt
+cd MultiModalLLM
+``` 
+
+2. Download the pre-trained LLM (for example, vicuna-7b-v1.1) and [SEED Tokenizer](https://huggingface.co/AILab-CVC/seed-tokenizer-2/tree/main), and put them under the folder "pretrained".
+
+3. Pre-process the pre-training data by converting images into discrete tokens. For example,
+```bash
+python3 src/tools/extract_image_ids_to_torchdata_parallel.py \
+  --tokenizer configs/tokenizer/seed_llama_tokenizer.yaml \
+  --image_transform configs/processer/blip_transform.yaml \
+  --data configs/data/caption_torchdata_preprocess.yaml \
+  --save_dir dataset/seed_llama/caption/unsplash_cc3m/ \
+  --batch_size 1024 --num_workers 8 --gpus 8
+``` 
+
+4. Pre-training Multimodal LLM with SEED tokens using lora.
+```bash
+sh scripts/train_a100_lora_multi_node_pretrain.sh
+``` 
+
+5. Merge the lora checkpoint with the original LLM.
+```bash
+python3 src/tools/merge_lora_weights.py \
+  --model_cfg configs/model/vicuna_7b_lora_pretrained.yaml \
+  --tokenizer_cfg configs/tokenizer/seed_llama_tokenizer.yaml \ 
+  --base_model pretrained/vicuna-7b-v1.1 \
+  --lora_model log/seed_vicuna-7b_lora_pretrain/checkpoint-10000 \
+  --save_path log/seed_vicuna-7b_lora_pretrain/checkpoint-merged-10000 
+``` 
+
+6. Pre-process the instruction tuning data by converting images into discrete tokens. For example,
+```bash
+python3 src/tools/extract_image_ids_to_torchdata_parallel_qa.py \
+  --tokenizer configs/tokenizer/seed_llama_tokenizer.yaml \
+  --image_transform configs/processer/blip_transform.yaml \
+  --data configs/data/question_answer_torchdata_eval.yaml \
+  --save_dir  data/VQAv2 \
+  --batch_size 512 --num_workers 8 --gpus 8
+``` 
+
+7. Instruction tuning Multimodal LLM with SEED tokens using lora.
+```bash
+sh scripts/train_a100_lora_multi_node_sft.sh
+```
+
 ## Citation
 If you find the work helpful, please consider citing:
 ```bash
