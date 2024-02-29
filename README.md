@@ -68,6 +68,16 @@ In SEED tokenizer v2, the generation embedding is aligned with the **image embed
 We perform multimodal autoregressive pretraining on interleaved visual and textual data for SEED-LLaMA. Visual inputs are pre-processed into discrete tokens to conserve computational resources. Given the multimodal discrete sequence, a unified next-word-prediction objective is employed. During inference, visual codes are decoded into a realistic image by SEED De-Tokenization.
 ![image](paper_images/v2/method_page.jpg) -->
 
+## Hightlights
+1. We use GPT-4 to rewrite the instructions in the [InstructPix2Pix dataset](https://arxiv.org/abs/2211.09800), such as transforming "add a storm" into "Can you add a storm effect to the image?" and responding with "Sure, I have successfully added a storm effect to the image.". The instruction tuned model can **generate informative text and images in a single response**, as shown in the figure below (this is also an **emergent ability**).
+![image](images/text_image.jpg)
+
+2. Given a starting image and story, the instruction tuned model can **generate the following story and multiple images** in one go.
+![image](images/story.jpg)
+
+3. We use GPT-4 to generate instruction based on the text content of [MMC4](https://arxiv.org/abs/2304.06939). The instruction tuned model can **generate image-text interleaved content** (Our released sft model does not possess this feature as we  separately instruction tune the pre-trained model on MMC4).
+![image](images/interleaved.jpg)
+
 ## Usage
 
 ### Dependencies
