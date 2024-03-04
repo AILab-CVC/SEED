@@ -1,4 +1,3 @@
-FROM mirrors.tencent.com/sijie-vision/py3.8.12-cuda11.7.1-cudnn8.5.0.96-1-nccl2.12.10-1-torch2.0.0-torchvision0.12.0-dev:v0.9
 # RUN pip install -U xformers webdataset transformers deepspeed accelerate diffusers["torch"] peft torchvision
 # RUN pip uninstall -y apex
 # RUN pip install -U torchdata datasets diffusers["torch"] torchinfo
