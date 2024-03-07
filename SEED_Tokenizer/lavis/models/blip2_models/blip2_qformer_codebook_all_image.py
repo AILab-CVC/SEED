@@ -351,7 +351,49 @@ class Blip2QformerCodebookAllImage(Blip2Base):
             embed_ind = embed_ind.reshape(quant.shape[0], -1)
 
         return embed_ind
-    
+
+     def get_discrete_features_for_decode(self, image):
+        with torch.no_grad():
+            with self.maybe_autocast():
+                image_embeds = self.ln_vision(self.visual_encoder(image))
+                image_atts = torch.ones(image_embeds.size()[:-1], dtype=torch.long).to(image.device)
+            query_tokens = self.query_tokens.expand(image_embeds.shape[0], -1, -1)
+            query_output = self.Qformer.bert(
+                query_embeds=query_tokens,
+                encoder_hidden_states=image_embeds,
+                encoder_attention_mask=image_atts,
+                return_dict=True,
+            )
+            query_output_down = self.encode_task_layer(query_output.last_hidden_state)
+            quant, loss_embed, embed_ind = self.quantize(query_output_down)
+            embed_ind = embed_ind.reshape(quant.shape[0], -1)
+           
+            query_output_up = self.decode_task_layer(quant)
+
+        pos_embed_image = self.pos_embed_image.repeat(query_output_up.shape[0], 1, 1)
+        query_output_up_pos_image = query_output_up + pos_embed_image
+        for blk in self.blocks_image:
+            query_output_up_pos_image = blk(query_output_up_pos_image)
+        query_output_up = query_output_up_pos_image
+
+        if self.use_qformer_image:
+            query_atts = torch.ones(query_output_up.size()[:-1], dtype=torch.long).to(query_output_up.device)
+            reverse_tokens = self.reverse_tokens.expand(query_output_up.shape[0], -1, -1)
+            reverse_output = self.Reverse_Qformer.bert(
+                query_embeds=reverse_tokens,
+                encoder_hidden_states=query_output_up,
+                encoder_attention_mask=query_atts,
+                return_dict=True,
+            )
+            reverse_output = reverse_output.last_hidden_state
+            reverse_output_proj = self.distill_image_proj(reverse_output).squeeze(1)
+        else:
+            reverse_output = self.image_down(query_output_up)
+            reverse_output = reverse_output.reshape(reverse_output.shape[0], -1)
+            reverse_output_proj = self.distill_image_proj(reverse_output)
+         
+        return reverse_output_proj
+      
     @torch.no_grad()
     def generate(
         self,
