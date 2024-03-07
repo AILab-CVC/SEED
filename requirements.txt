@@ -14,3 +14,5 @@ accelerate
 einops
 sentencepiece
 gradio==3.50.0
+torchdata
+datasets
