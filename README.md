@@ -192,7 +192,12 @@ sh train_scripts/causal_qformer.sh
 ```bash
 sh train_scripts/codebook.sh
 ``` 
-
+6. After training, you can tokenize an image into discrete tokens and decode the discrete tokens into a realistic image via [unclip SD](https://huggingface.co/stabilityai/stable-diffusion-2-1-unclip) 
+```bash
+# You need to load the pre-trained ckpt.
+python3 eval/seed_inference.py
+``` 
+   
 ### Multimodal LLM Pre-training and instruction truning
 1. Installation
 ```bash
