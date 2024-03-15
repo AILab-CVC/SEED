@@ -5,6 +5,6 @@ pip install --upgrade tensorboard
 pip install loralib
 pip install kornia==0.6
 
-pip install -e git+https://github.com/CompVis/taming-transformers.git@master#egg=taming-transformers
+#pip install -e git+https://github.com/CompVis/taming-transformers.git@master#egg=taming-transformers
 pip install -e git+https://github.com/openai/CLIP.git@main#egg=clip
 cd ..
