@@ -21,7 +21,7 @@ from lavis.models.blip2_models.blip2 import (
     disabled_train,
 )
 from lavis.models.blip_models.blip_outputs import BlipOutput, BlipOutputFeatures
-from taming.taming.modules.vqvae.quantize_semantic import VectorQuantizer2 as VectorQuantizer
+from lavis.models.quantize_semantic import VectorQuantizer2 as VectorQuantizer
 #from stable_diffusion.ldm.modules.encoders.modules import FrozenCLIPEmbedder
 from lavis.models.vit import Block
 from transformers import CLIPVisionModelWithProjection
