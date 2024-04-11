@@ -233,7 +233,7 @@ python3 src/tools/merge_lora_weights.py \
   --save_path log/seed_vicuna-7b_lora_pretrain/checkpoint-merged-10000 
 ``` 
 
-6. Pre-process the instruction tuning data by converting images into discrete tokens. For example,
+6. Pre-process the instruction tuning data by converting images into discrete tokens. (You first need to convert the data into JSON format, with each line of the JSON containing "image" (the path of the image), "question", and "answer".) 
 ```bash
 python3 src/tools/extract_image_ids_to_torchdata_parallel_qa.py \
   --tokenizer configs/tokenizer/seed_llama_tokenizer.yaml \
