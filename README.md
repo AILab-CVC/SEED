@@ -5,7 +5,7 @@
 [![arXiv](https://img.shields.io/badge/arXiv-2310.01218-b31b1b.svg)](https://arxiv.org/abs/2310.01218)
 [![Static Badge](https://img.shields.io/badge/Model-Huggingface-yellow)](https://huggingface.co/AILab-CVC/SEED/tree/main)
 [![Demo](https://img.shields.io/badge/Gradio-Demo-orange)](https://c0c18bb50ca9b78b8f.gradio.live/)
-
+[![arXiv](https://img.shields.io/badge/arXiv-2404.14396-b31b1b.svg)](https://arxiv.org/abs/2404.14396)
 
 **Powered by [CV Center, Tencent AI Lab](https://ailab-cvc.github.io), and [ARC Lab, Tencent PCG](https://github.com/TencentARC).**
 
@@ -17,7 +17,7 @@ The repository provides the official implementation of [SEED](https://ailab-cvc.
 ## News
 
 **:beers: We are actively looking for self-motivated interns. Please feel free to reach out if you are interested. :beers:**
-
+- [x] **2024-04-27** :hugs: We have released an upgraded version [SEED-X](https://github.com/AILab-CVC/SEED-X/tree/main) based on continuous visual embeddings, which supports multi-granularity comprehension and generation.
 - [x] **2024-02-24** :hugs: We have released the **training code** of SEED-LLaMa, including SEED tokenizer, Multimodal LLM pretraining and instruction tuning. Our Multimodal LLM training codebase supports 1. large-scale multi-node training with deepspeed 2. highly-efficient multiple training datapipes.
 - [x] **2024-01-16** :star_struck: Our SEED-LLaMA ([arXiv](https://arxiv.org/abs/2310.01218)) has been accepted by **ICLR 2024** ([OpenReview](https://openreview.net/forum?id=0Nui91LBQS)), see you in Vienna!
 - [x] **2023-11-03** :hugs: We have released the demo of [seed-llama-v2-1](https://c0c18bb50ca9b78b8f.gradio.live/), and the quality of generated images has been greatly improved, feel free to use it by yourself.
